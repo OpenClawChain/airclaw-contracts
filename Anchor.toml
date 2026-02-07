@@ -1,0 +1,27 @@
+[toolchain]
+
+[features]
+skip-lint = false
+
+[dependencies]
+anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
+solana-program = "1.18.0"
+
+[dev-dependencies]
+anchor-runner = "0.29.0"
+
+[profile.build]
+b = "bpf"
+bpf_out_dir = "dist/programs"
+
+[registry]
+name = "solana"
+address = "https://index.solana.com/"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "anchor test --skip-deploy"
