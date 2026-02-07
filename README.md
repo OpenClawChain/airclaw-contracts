@@ -2,6 +2,30 @@
 
 Non-custodial escrow smart contracts for Airclaw marketplace on Solana.
 
+## Program ID
+
+**Devnet**: `Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS`
+
+This is the on-chain address of the Airclaw Escrow program. All interactions with the escrow system reference this program ID.
+
+### Viewing Program Info
+
+```bash
+# View program details on devnet
+solana program show --url devnet Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS
+
+# View program account
+solana account --url devnet Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS
+
+# Monitor program logs
+solana logs --url devnet Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS
+```
+
+### Explorer Links
+
+- **Solana Explorer**: `https://explorer.solana.com/address/Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS?cluster=devnet`
+- **Solscan**: `https://solscan.io/account/Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS?cluster=devnet`
+
 ## Architecture
 
 ```
@@ -57,18 +81,29 @@ avm use 0.29.0
 
 ### Generate Program Keypair
 
+The program uses a deterministic keypair derived from the program name:
+
 ```bash
 anchor keys list
 # Output: airclaw_escrow: Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS
-
-# Update Anchor.toml and lib.rs with this program_id
 ```
+
+**Important**: This program ID is declared in `programs/airclaw-escrow/src/lib.rs` using the `declare_id!` macro. It must match the deployed program address.
 
 ### Build & Deploy
 
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
 ```bash
+# Build the program
 anchor build
+
+# Deploy to devnet
 anchor deploy --provider.cluster devnet
+
+# Or use the deployment scripts
+./deploy-devnet.sh    # Using Solana CLI
+./deploy-anchor.sh    # Using Anchor CLI
 ```
 
 ## Development

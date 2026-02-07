@@ -3,21 +3,14 @@
 [features]
 skip-lint = false
 
-[dependencies]
-anchor-lang = "0.29.0"
-anchor-spl = "0.29.0"
-solana-program = "1.18.0"
+[programs.localnet]
+airclaw_escrow = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
 
-[dev-dependencies]
-anchor-runner = "0.29.0"
-
-[profile.build]
-b = "bpf"
-bpf_out_dir = "dist/programs"
+[programs.devnet]
+airclaw_escrow = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
 
 [registry]
-name = "solana"
-address = "https://index.solana.com/"
+url = "https://api.apr.dev"
 
 [provider]
 cluster = "localnet"
@@ -25,3 +18,7 @@ wallet = "~/.config/solana/id.json"
 
 [scripts]
 test = "anchor test --skip-deploy"
+
+[[test.genesis]]
+address = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+program = "target/deploy/airclaw_escrow.so"
