@@ -1,0 +1,1 @@
+{"version":1,"contracts":[{"id":"niarjpnd06b3m","package_name":"airclaw_starknet","contract_name":"escrow","module_path":"airclaw_starknet::escrow::escrow","artifacts":{"sierra":"airclaw_starknet_escrow.contract_class.json","casm":"airclaw_starknet_escrow.compiled_contract_class.json"}}]}

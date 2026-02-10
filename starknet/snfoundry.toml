@@ -1,0 +1,4 @@
+[sncast.default]
+url = "https://starknet-sepolia.g.alchemy.com/starknet/version/rpc/v0_10/a0CQ0YnVGtptgWQBGvSXW"
+account = "bobio"
+accounts-file = "./sncast_accounts.json"
